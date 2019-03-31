@@ -34,7 +34,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa'],
+  modules: ['@nuxtjs/pwa', 'nuxt-purgecss'],
 
   /*
    ** Build configuration
@@ -43,6 +43,23 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    extractCSS: true,
+    postcss: {
+      plugins: {
+        tailwindcss: './tailwind.config.js',
+        autoprefixer: {}
+      }
+    },
     extend(config, ctx) {}
+  },
+
+  /*
+   * module-specific settings
+   */
+  purgeCSS: {
+    // your settings here
+    // reference implementation: https://github.com/manniL/lichter.io/blob/master/nuxt.config.js
+    mode: 'postcss',
+    whitelist: ['html', 'body', 'nuxt-progress', 'is-active']
   }
 }
