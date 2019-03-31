@@ -1,9 +1,24 @@
-const join = require('path').join
-const tailwindJS = join(__dirname, 'tailwind.js')
+const tailwindcss = require('tailwindcss')
+const purgecss = require('@fullhuman/postcss-purgecss')
+const cssnano = require('cssnano')
+const autoprefixer = require('autoprefixer')
 
 module.exports = {
   plugins: [
-    require('tailwindcss')(tailwindJS),
-    require('autoprefixer')
+    tailwindcss('./tailwind.js'),
+    cssnano({
+      preset: 'default'
+    }),
+    purgecss({
+      content: [
+        'components/**/*.vue',
+        'layouts/**/*.vue',
+        'pages/**/*.vue',
+        'plugins/**/*.js',
+        'assets/**/*.css',
+        'assets/**/*.scss'
+      ]
+    }),
+    autoprefixer
   ]
 }

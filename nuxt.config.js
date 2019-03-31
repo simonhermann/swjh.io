@@ -66,6 +66,6 @@ export default {
     // your settings here
     // reference implementation: https://github.com/manniL/lichter.io/blob/master/nuxt.config.js
     mode: 'postcss',
-    whitelist: ['html', 'body', 'nuxt-progress', 'is-active']
+    whitelist: ['html', 'body', 'nuxt-progress', 'is-active'],
   }
 }
