@@ -43,7 +43,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extractCSS: true,
+    extractCSS: false,
     postcss: {
       plugins: {
         tailwindcss: './tailwind.config.js',
@@ -53,6 +53,12 @@ export default {
     extend(config, ctx) {}
   },
 
+  /*
+   * Render configuration
+   */
+  render: {
+    http2: { push: true }
+  },
   /*
    * module-specific settings
    */
