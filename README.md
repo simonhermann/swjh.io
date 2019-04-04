@@ -1,6 +1,6 @@
 # swjh.io
 
-> My shining Nuxt.js project
+> Knowledge collection. Blog. Tech Playground.
 
 ## Build Setup
 

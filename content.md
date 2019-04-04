@@ -7,6 +7,7 @@
 - nuxt
 - css
 - ux
+- security
 
 ## planned posts
 
@@ -16,3 +17,5 @@
 
 - super fast performance website
     https://2019.jsconf.eu/news/how-we-built-the-fastest-conference-website-in-the-world/
+
+- google XSS https://youtu.be/lG7U3fuNw3A
