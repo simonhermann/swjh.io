@@ -1,10 +1,5 @@
 # swjh.io
 
-blog a la fefe
-
-- simpel & clean
-- mal kaum mehr als link, mal richtiger blogpost
-
 ## Tags / collections
 
 - performance
@@ -13,9 +8,7 @@ blog a la fefe
 - css
 - ux
 
-
-
-## posts
+## planned posts
 
 - vue functional components
     https://itnext.io/whats-the-deal-with-functional-components-in-vue-js-513a31eb72b0
