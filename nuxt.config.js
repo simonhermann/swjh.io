@@ -34,7 +34,17 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/pwa', 'nuxt-purgecss'],
+  modules: [
+    // Axios: https://axios.nuxtjs.org/
+    '@nuxtjs/axios',
+    '@nuxtjs/pwa',
+    'nuxt-purgecss',
+    // Storyblok https://github.com/storyblok/storyblok-nuxt
+    [
+      'storyblok-nuxt',
+      { accessToken: '1r8e3Qeyz2NeNrMKKptY4gtt', cacheProvider: 'memory' }
+    ]
+  ],
 
   /*
    ** Build configuration
@@ -66,6 +76,6 @@ export default {
     // your settings here
     // reference implementation: https://github.com/manniL/lichter.io/blob/master/nuxt.config.js
     mode: 'postcss',
-    whitelist: ['html', 'body', 'nuxt-progress', 'is-active'],
+    whitelist: ['html', 'body', 'nuxt-progress', 'is-active']
   }
 }
