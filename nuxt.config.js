@@ -1,4 +1,8 @@
 import pkg from './package'
+const tailwindcss = require('tailwindcss')
+const purgecss = require('@fullhuman/postcss-purgecss')
+const cssnano = require('cssnano')
+const autoprefixer = require('autoprefixer')
 
 export default {
   mode: 'universal',
@@ -55,10 +59,35 @@ export default {
      */
     extractCSS: false,
     postcss: {
-      plugins: {
-        tailwindcss: './tailwind.config.js',
-        autoprefixer: {}
-      }
+      plugins: [
+        require('tailwindcss')('./tailwind.config.js'),
+        // Autoprefixer: https://github.com/postcss/autoprefixer
+        require('autoprefixer')({
+          cascade: false, // don't indent prefixes
+          grid: 'autoplace' // enable IE polyfill for css grid
+        }),
+        // postcss-preset-env: determines which CSS features to polyfill
+        // Doc: https://github.com/csstools/postcss-preset-env
+        require('postcss-preset-env')({
+          stage: 0
+        }),
+        purgecss({
+          content: [
+            'components/**/*.vue',
+            'layouts/**/*.vue',
+            'pages/**/*.vue',
+            'plugins/**/*.js',
+            'assets/**/*.css',
+            'assets/**/*.scss'
+          ]
+        }),
+        // cssnano (minify) https://github.com/cssnano/cssnano
+        cssnano({
+          preset: 'default',
+          discardComments: { removeAll: true },
+          zindex: false
+        })
+      ]
     },
     extend(config, ctx) {}
   },
@@ -73,9 +102,9 @@ export default {
    * module-specific settings
    */
   purgeCSS: {
-    // your settings here
-    // reference implementation: https://github.com/manniL/lichter.io/blob/master/nuxt.config.js
+    // CSS tree shaking
+    // Doc: https://github.com/Developmint/nuxt-purgecss
     mode: 'postcss',
-    whitelist: ['html', 'body', 'nuxt-progress', 'is-active']
+    whitelist: ['html', 'body', 'nuxt-progress', 'is-active'],
   }
 }
