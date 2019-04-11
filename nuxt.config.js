@@ -33,7 +33,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/v-lazy-image.js'],
+  plugins: ['~/plugins/components.js', '~/plugins/v-lazy-image.js'],
 
   /*
    ** Nuxt.js modules
@@ -105,6 +105,6 @@ export default {
     // CSS tree shaking
     // Doc: https://github.com/Developmint/nuxt-purgecss
     mode: 'postcss',
-    whitelist: ['html', 'body', 'nuxt-progress', 'is-active'],
+    whitelist: ['html', 'body', 'nuxt-progress', 'is-active']
   }
 }
