@@ -1,7 +1,10 @@
 <template>
   <nuxt-link class="post-preview" :to="'/blog/' + id">
     <article>
-      <div :style="{backgroundImage: 'url(' + thumbnailImage + ')'}" class="post-preview-thumbnail"></div>
+      <div
+        :style="{ backgroundImage: 'url(' + thumbnailImage + ')' }"
+        class="post-preview-thumbnail"
+      ></div>
       <div class="post-preview-content">
         <h1>{{ title }}</h1>
         <p>{{ excerpt }}</p>
@@ -40,6 +43,7 @@ a
   color: black;
 
 .post-preview 
+  display: block
   border-radius: 3px;
   box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
   width: 90%;
