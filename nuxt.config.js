@@ -60,6 +60,10 @@ export default {
    ** Build configuration
    */
   build: {
+    // Webpack bundle analyzer, will create report in .nuxt/stats/
+    /* analyze: {
+      analyzerMode: 'static'
+    }, */
     /*
      ** You can extend webpack config here
      */
@@ -116,7 +120,7 @@ export default {
         )
         .then(res => {
           const blogPosts = res.data.stories.map(bp => bp.full_slug)
-          return ['/', '/blog', '/about', ...blogPosts]
+          return ['/', '/about', ...blogPosts]
         })
     }
   },
