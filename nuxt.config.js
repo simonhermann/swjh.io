@@ -1,4 +1,5 @@
 import pkg from './package'
+const axios = require('axios')
 const tailwindcss = require('tailwindcss')
 const purgecss = require('@fullhuman/postcss-purgecss')
 const cssnano = require('cssnano')
@@ -46,7 +47,12 @@ export default {
     // Storyblok https://github.com/storyblok/storyblok-nuxt
     [
       'storyblok-nuxt',
-      { accessToken: '1r8e3Qeyz2NeNrMKKptY4gtt', cacheProvider: 'memory' }
+      {
+        accessToken:
+          process.env.NODE_ENV == 'production'
+            ? 'O5PSiXQfVrHAbsH2Io9mlwtt'
+            : '1r8e3Qeyz2NeNrMKKptY4gtt'
+      }
     ]
   ],
 
@@ -97,6 +103,22 @@ export default {
    */
   render: {
     http2: { push: true }
+  },
+  /*
+   * Generate configuration
+   */
+  generate: {
+    routes: function() {
+      return axios
+        .get(
+          'https://api.storyblok.com/v1/cdn/stories?version=published&token=O5PSiXQfVrHAbsH2Io9mlwtt&starts_with=blog&cv=' +
+            Math.floor(Date.now() / 1e3)
+        )
+        .then(res => {
+          const blogPosts = res.data.stories.map(bp => bp.full_slug)
+          return ['/', '/blog', '/about', ...blogPosts]
+        })
+    }
   },
   /*
    * module-specific settings

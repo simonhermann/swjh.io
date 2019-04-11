@@ -24,8 +24,8 @@ export default {
   asyncData(context) {
     return context.app.$storyapi
       .get('cdn/stories', {
-        version: 'draft',
-        starts_width: 'blog/'
+        version: context.isDev ? 'draft' : 'published',
+        starts_with: 'blog/'
       })
       .then(res => {
         return {
