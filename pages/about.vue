@@ -1,7 +1,6 @@
 <template>
   <div>
-    <nuxt-link to="/">about</nuxt-link>
-
+    about me
   </div>
 </template>
 

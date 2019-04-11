@@ -1,18 +1,26 @@
 <template>
   <section>
     <h1>swjh.io</h1>
-    <nuxt-link to="/about">back</nuxt-link>
-    <ul>
-      <li v-for="post in posts" :key="post.id" :v-if="post.content" > {{ post.title }} 
-        <img :src="post.thumbnailUrl" alt="">
-      </li>
-    </ul>
+    <section>
+      <PostPreview
+        v-for="post in posts"
+        :key="post.id"
+        :title="post.title"
+        :excerpt="post.previewText"
+        :thumbnailImage="post.thumbnailUrl"
+        :id="post.id"
+      />
+    </section>
   </section>
 </template>
 
 <script>
+import PostPreview from '@/components/PostPreview'
+
 export default {
-  components: {},
+  components: {
+    PostPreview
+  },
   asyncData(context) {
     return context.app.$storyapi
       .get('cdn/stories', {
@@ -50,9 +58,9 @@ export default {
 }
 </script>
 
-<style lang="postcss">
+<style lang="sass">
 /* Sample `apply` at-rules with Tailwind CSS */
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
+.container 
+  // @apply min-h-screen flex justify-center items-center text-center mx-auto;
+
 </style>
