@@ -20,4 +20,7 @@ export default {
 
 
 <style>
+p {
+  white-space: pre-line;
+}
 </style>
