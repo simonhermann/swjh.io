@@ -49,7 +49,11 @@ export default {
   modules: [
     // Axios: https://axios.nuxtjs.org/
     '@nuxtjs/axios',
+    // PWA functions
     '@nuxtjs/pwa',
+    // RSS Feed Module: https://github.com/nuxt-community/feed-module
+    '@nuxtjs/feed',
+    // PurgeCSS
     'nuxt-purgecss',
     // Storyblok https://github.com/storyblok/storyblok-nuxt
     [
@@ -148,5 +152,8 @@ export default {
       'page-enter',
       'page-leave-to'
     ]
-  }
+  },
+  feed: [
+    // TODO:
+  ]
 }

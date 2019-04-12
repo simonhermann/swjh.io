@@ -15,7 +15,7 @@
 
 <style lang='scss' scoped>
 .nav {
-  }
+}
 .nav-ul {
   list-style: none;
   padding: 0;
@@ -26,7 +26,7 @@
   margin-right: 1rem;
 
   box-shadow: inset 0 -0.3rem 0 var(--c-1);
-  transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.15s ease-out;
 
   &.nuxt-link-exact-active {
     box-shadow: inset 0 -0.3rem 0 var(--c-2);
