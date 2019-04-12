@@ -131,6 +131,16 @@ export default {
     // CSS tree shaking
     // Doc: https://github.com/Developmint/nuxt-purgecss
     mode: 'postcss',
-    whitelist: ['html', 'body', 'nuxt-progress', 'is-active']
+    whitelist: [
+      'html',
+      'body',
+      'nuxt-progress',
+      'is-active',
+      'page-enter-active',
+      'page-leave-active',
+      'page-enter',
+      'page-leave-to',
+      'nuxt-progress'
+    ]
   }
 }

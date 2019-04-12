@@ -3,6 +3,9 @@
 # Redirect default Netlify subdomain to primary domain
 https://swjh.netlify.com/* https://swjh.io/:splat 301!
 
-# Project Shadowing
-/simonhermann.de https://simonhermann.de/ 200
-/microinteractions https://microinteractionsdesign.netlify.com/ 200
+# Rewrite /project urls
+/simonhermann.de/* https://simonhermann.de/ 200
+/microinteractions/* https://microinteractionsdesign.netlify.com/ 200
+
+# redirect all dead links to index
+# /* /index 301
