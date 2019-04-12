@@ -1,8 +1,11 @@
 body {
   min-height: 100vh;
   scroll-behavior: smooth;
+  overflow-x: hidden;
   color: var(--c-l);
   background-color: var(--c-bg);
+
+  @extend %ext-nice-scrollbar;
 }
 
 ::selection {
@@ -13,5 +16,57 @@ body {
 a {
   text-decoration: none;
   color: var(--c-l);
+}
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.2;
+  font-weight: 900;
+  margin-top: 2em;
+  margin-bottom: 1rem;
+}
+h1 {
+  line-height: 1;
+  margin-top: 4em;
+  margin-bottom: 2em;
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+h4 {
+  font-size: 1rem;
+}
+h5 {
+  font-size: 1rem;
+}
+
+p,
+ul,
+ol {
+  padding: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+pre,
+code {
+  line-height: inherit;
+  font-family: monospace;
+  white-space: pre;
+}
+
+blockquote {
+  font-family: inherit;
+  font-style: italic;
+  width: 75%;
+  //quotes: '„' '“';
+  quotes: '»' '«';
+  background: rgba(255, 255, 255, 0.25);
 }

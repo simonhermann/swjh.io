@@ -4,10 +4,7 @@
       <header>
         <h1>{{ title }}</h1>
       </header>
-      <div class="post-content__md" v-html="$options.filters.markdown(content)"></div>
-      <!-- <div class="post-content__md">
-        {{ content | markdown }}
-      </div> -->
+      <div class="post-content__md" :inner-html.prop="content | markdown"></div>
     </article>
   </div>
 </template>

@@ -38,12 +38,17 @@
 }
 
 body {
-  font-family: 'Bitter', 'TheSerif', 'FF Tisa', 'Garibaldi', 'Bligh', 'Demos Next', 'Tienne', 'Trebuchet MS', 'Trebuchet', 'Bookman', 'Palatino',
+  font-family: 'Bitter', 'TheSerif', 'FF Tisa', 'Garibaldi', 'Bligh',
+    'Demos Next', 'Tienne', 'Trebuchet MS', 'Trebuchet', 'Bookman', 'Palatino',
     'Lucida Sans Unicode', 'Lucida Grande', 'Tahoma', 'Geneva', Verdana,
     sans-serif;
   text-rendering: optimizeLegibility;
+  font-feature-settings: 'kern', 'liga', 'clig', 'calt';
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  line-height: 1.8;
+
+  line-height: 1.75;
   font-size: 20px;
 }
