@@ -1,5 +1,9 @@
 # swjh.io
 
+TODO:
+
+- allow external posts
+
 ## Tags / collections
 
 - performance
@@ -8,6 +12,8 @@
 - css
 - ux
 - security
+- accesibilty
+- TIL
 
 ## planned posts
 

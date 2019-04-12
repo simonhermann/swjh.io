@@ -1,10 +1,6 @@
 <template>
   <nuxt-link class="post-preview" :to="'/blog/' + id">
     <article>
-      <div
-        :style="{ backgroundImage: 'url(' + thumbnailImage + ')' }"
-        class="post-preview__thumbnail"
-      ></div>
       <div class="post-preview__content">
         <h3>{{ title }}</h3>
         <p>{{ excerpt }}</p>
@@ -18,15 +14,11 @@ export default {
   props: {
     title: {
       type: String,
-      required: false
+      required: true
     },
     excerpt: {
       type: String,
-      required: false
-    },
-    thumbnailImage: {
-      type: String,
-      required: false
+      required: true
     },
     id: {
       type: String,
