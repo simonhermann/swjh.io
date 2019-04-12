@@ -4,8 +4,8 @@
 https://swjh.netlify.com/* https://swjh.io/:splat 301!
 
 # Rewrite /project urls
-/simonhermann.de/* https://simonhermann.de/ 200
-/microinteractions/* https://microinteractionsdesign.netlify.com/ 200
+/simonhermann.de/* https://simonhermann.de/ 200!
+/microinteractions/* https://microinteractionsdesign.netlify.com/ 200!
 
 # redirect all dead links to index
 # /* /index 301

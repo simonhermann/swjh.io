@@ -24,7 +24,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: '~/components/loading.vue',
 
   /*
    ** Global CSS
@@ -139,8 +139,7 @@ export default {
       'page-enter-active',
       'page-leave-active',
       'page-enter',
-      'page-leave-to',
-      'nuxt-progress'
+      'page-leave-to'
     ]
   }
 }

@@ -20,6 +20,9 @@ export default {
 
 
 <style lang="scss">
+body {
+  padding: 1rem;
+}
 p {
   white-space: pre-line;
 }
