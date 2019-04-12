@@ -3,10 +3,10 @@
     <article>
       <div
         :style="{ backgroundImage: 'url(' + thumbnailImage + ')' }"
-        class="post-preview-thumbnail"
+        class="post-preview__thumbnail"
       ></div>
-      <div class="post-preview-content">
-        <h1>{{ title }}</h1>
+      <div class="post-preview__content">
+        <h3>{{ title }}</h3>
         <p>{{ excerpt }}</p>
       </div>
     </article>
@@ -26,8 +26,7 @@ export default {
     },
     thumbnailImage: {
       type: String,
-      required: false,
-      default: 'http://via.placeholder.com/200'
+      required: false
     },
     id: {
       type: String,
@@ -37,32 +36,12 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-a 
-  text-decoration: none;
-  color: black;
-
-.post-preview 
-  display: block
-  border-radius: 3px;
-  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
-  width: 90%;
-  height: 20rem;
-  margin: 1rem;
-
-.post-preview-thumbnail 
-  background-position: center;
-  background-size: cover;
-  width: 100%;
-  height: 10rem;
-
-.post-preview-content 
-  text-align: center;
+<style lang="scss" scoped>
+.post-preview {
+  display: block;
   padding: 1rem;
-
-@media (min-width: 35rem) 
-  .post-preview 
-    width: 25rem;
-  
-
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
 </style>

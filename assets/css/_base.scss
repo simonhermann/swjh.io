@@ -1,0 +1,17 @@
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  color: var(--c-l);
+  background-color: var(--c-bg);
+}
+
+::selection {
+  background: var(--c-1);
+  color: var(--c-l);
+}
+
+a {
+  text-decoration: none;
+  color: var(--c-l);
+
+}

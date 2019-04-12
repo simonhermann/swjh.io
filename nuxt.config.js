@@ -24,17 +24,24 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: '~/components/loading.vue',
+  loading: '~/components/nuxt/loading.vue',
 
   /*
    ** Global CSS
    */
-  css: ['~/assets/css/tailwind.css'],
+  css: [
+    '~/assets/css/tailwind.css',
+    '~/assets/css/main.scss'
+  ],
 
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/components.js', '~/plugins/v-lazy-image.js'],
+  plugins: [
+    '~/plugins/components.js', 
+    '~/plugins/v-lazy-image.js',
+    // '~plugins/ga.client.js'
+  ],
 
   /*
    ** Nuxt.js modules

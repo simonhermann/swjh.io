@@ -11,6 +11,9 @@
         :id="post.id"
       />
     </section>
+    <section>
+      <!-- projects -->
+    </section>
   </section>
 </template>
 
