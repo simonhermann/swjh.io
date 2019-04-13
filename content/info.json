@@ -3,5 +3,6 @@
   "short_name": "swjh.io",
   "name": "swjh.io // Dev + Design",
   "description": "Knowledge collection. Blog. Tech Playground.",
-  "color": "#1a1a1d"
+  "color_bg": "#1a1a1d",
+  "color": "#0dd492"
 }

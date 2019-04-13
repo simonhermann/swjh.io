@@ -5,6 +5,11 @@
         <h3>{{ title }}</h3>
         <p>{{ excerpt }}</p>
       </div>
+      <ul class="tags">
+        <li class="tag" v-for="tag in tags" :key="tag">
+          {{ tag }}
+        </li>
+      </ul>
     </article>
   </nuxt-link>
 </template>
@@ -19,6 +24,10 @@ export default {
     excerpt: {
       type: String,
       required: true
+    },
+    tags: {
+      type: Array,
+      required: false
     },
     id: {
       type: String,
@@ -35,5 +44,16 @@ export default {
   &:hover {
     background: rgba(255, 255, 255, 0.2);
   }
+}
+.tags {
+  padding: 0;
+  list-style: none;
+}
+.tag {
+  display: inline;
+  font-size: .75rem;
+  margin-right: 0.5em;
+  padding: .5em;
+  background-color: #030303;
 }
 </style>

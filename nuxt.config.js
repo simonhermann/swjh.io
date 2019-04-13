@@ -156,12 +156,13 @@ export default {
     // TODO:
   ],
   manifest: {
-    name: info.name,
+    name: 'swjh.io'
+    /*name: info.name,
     short_name: info.short_name,
     lang: 'en',
     display: 'minimal-ui',
     // display: 'standalone',
     background_color: info.color,
-    description: info.description
+    description: info.description */
   }
 }
