@@ -1,4 +1,5 @@
-import pkg from './package'
+// import pkg from './package'
+import info from './content/info.json'
 const axios = require('axios')
 const tailwindcss = require('tailwindcss')
 const purgecss = require('@fullhuman/postcss-purgecss')
@@ -12,11 +13,11 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title: info.title,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: info.description }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
@@ -29,18 +30,15 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-    '~/assets/css/tailwind.css',
-    '~/assets/css/main.scss'
-  ],
+  css: ['~/assets/css/tailwind.css', '~/assets/css/main.scss'],
 
   /*
    ** Plugins to load before mounting the App
    */
   plugins: [
-    '~/plugins/components.js', 
-    '~/plugins/filters.js', 
-    '~/plugins/v-lazy-image.js',
+    '~/plugins/components.js',
+    '~/plugins/filters.js',
+    '~/plugins/v-lazy-image.js'
     // '~plugins/ga.client.js'
   ],
 
@@ -156,5 +154,14 @@ export default {
   },
   feed: [
     // TODO:
-  ]
+  ],
+  manifest: {
+    name: info.name,
+    short_name: info.short_name,
+    lang: 'en',
+    display: 'minimal-ui',
+    // display: 'standalone',
+    background_color: info.color,
+    description: info.description
+  }
 }

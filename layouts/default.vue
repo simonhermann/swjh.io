@@ -1,7 +1,7 @@
 <template>
   <div>
-    <TheHeader/>
-    <main>
+    <TheHeader class="container mx-auto"/>
+    <main class="container mx-auto">
       <nuxt/>
     </main>
     <!-- TheFooter -->
@@ -23,7 +23,7 @@ export default {
 body {
   padding: 1rem;
 }
-p {
-  white-space: pre-line;
-}
+// p {
+//   white-space: pre-line;
+// }
 </style>

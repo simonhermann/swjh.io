@@ -1,10 +1,10 @@
 <template>
   <div id="post" v-editable="blok">
-    <article class="post-content">
+    <article class="container mx-auto post-content">
       <header>
         <h1>{{ title }}</h1>
       </header>
-      <div class="post-content__md" :inner-html.prop="content | markdown"></div>
+      <div class="post-content__md" v-html="$options.filters.markdown(content)"></div>
     </article>
   </div>
 </template>
@@ -31,12 +31,7 @@ export default {
 </script>
 
 <style>
-.post-content {
-  width: 80%;
-  max-width: 500px;
-  margin: auto;
-}
 .post-content__md {
-  white-space: pre-line;
+  /* white-space: pre-line; */
 }
 </style>
