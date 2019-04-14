@@ -5,17 +5,17 @@
         <h3>{{ title }}</h3>
         <p>{{ excerpt }}</p>
       </div>
-      <ul class="tags">
-        <li class="tag" v-for="tag in tags" :key="tag">
-          {{ tag }}
-        </li>
-      </ul>
+      <PostTags v-if="tags && tags.length" :tags="tags" />
     </article>
   </nuxt-link>
 </template>
 
 <script>
+import PostTags from '@/components/PostTags.vue'
 export default {
+  components: {
+    PostTags
+  },
   props: {
     title: {
       type: String,
@@ -44,16 +44,5 @@ export default {
   &:hover {
     background: rgba(255, 255, 255, 0.2);
   }
-}
-.tags {
-  padding: 0;
-  list-style: none;
-}
-.tag {
-  display: inline;
-  font-size: .75rem;
-  margin-right: 0.5em;
-  padding: .5em;
-  background-color: #030303;
 }
 </style>

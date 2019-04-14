@@ -10,20 +10,11 @@
 </template>
 
 <script>
+import storyblokLivePreview from '@/mixins/storyblokLivePreview'
+
 export default {
   data() {
     return { story: { content: {} } }
-  },
-  mounted() {
-    this.$storybridge.on(['input', 'published', 'change'], event => {
-      if (event.action == 'input') {
-        if (event.story.id === this.story.id) {
-          this.story.content = event.story.content
-        }
-      } else {
-        window.location.reload()
-      }
-    })
   },
   asyncData(context) {
     // Check if we are in the editor mode
@@ -44,6 +35,7 @@ export default {
           message: res.response.data
         })
       })
-  }
+  },
+  mixins: [storyblokLivePreview]
 }
 </script>
