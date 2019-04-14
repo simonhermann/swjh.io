@@ -38,3 +38,5 @@ TODO:
     process.env.NODE_ENV == "production" ? "published" : "draft"
     context.isDev ? 'draft' : 'published' // only where context is available
 ```
+
+- Dark/light switch with css vars https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8?utm_source=digest_mailer&utm_medium=email&utm_campaign=digest_email

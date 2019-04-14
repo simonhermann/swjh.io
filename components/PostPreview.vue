@@ -1,9 +1,10 @@
 <template>
-  <nuxt-link class="post-preview" :to="'/blog/' + id">
+  <!-- <nuxt-link class="post-preview" :to="'/blog/' + slug"> -->
+  <nuxt-link class="post-preview" :to="computedLink">
     <article>
       <div class="post-preview__content">
         <h3>{{ title }}</h3>
-        <p>{{ excerpt }}</p>
+        <p v-if="excerpt">{{ excerpt }}</p>
       </div>
       <PostTags v-if="tags && tags.length" :tags="tags" />
     </article>
@@ -13,6 +14,11 @@
 <script>
 import PostTags from '@/components/PostTags.vue'
 export default {
+  computed: {
+    computedLink: function() {
+      return this.external_link ? this.external_link : '/blog/' + this.slug
+    }
+  },
   components: {
     PostTags
   },
@@ -23,15 +29,24 @@ export default {
     },
     excerpt: {
       type: String,
-      required: true
+      required: false
     },
     tags: {
       type: Array,
       required: false
     },
-    id: {
+    slug: {
       type: String,
       required: true
+    },
+    is_external: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    external_link: {
+      type: String,
+      required: false
     }
   }
 }

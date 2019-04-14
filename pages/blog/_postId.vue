@@ -21,6 +21,24 @@ export default {
   components: {
     PostTags
   },
+  head() {
+    return {
+      title: this.title + ' // swjh.io',
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.excerpt
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.excerpt
+        }
+      ]
+    }
+  },
   mixins: [storyblokLivePreview],
   asyncData(context) {
     return context.app.$storyapi
@@ -28,11 +46,12 @@ export default {
         version: context.isDev ? 'draft' : 'published'
       })
       .then(res => {
-        // console.log(res)
+        console.log(res)
         return {
           blok: res.data.story.content,
           title: res.data.story.content.title,
           content: res.data.story.content.content,
+          content: res.data.story.content.excerpt,
           tags: res.data.story.tag_list
         }
       })
