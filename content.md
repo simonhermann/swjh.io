@@ -2,10 +2,6 @@
 
 TODO:
 
-- allow external posts
-- PWA manifest does not work
-- _redirects does not work
-
 ## Tags / collections
 
 - performance
