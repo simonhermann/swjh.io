@@ -33,37 +33,37 @@ export default {
         },
         {
           hid: 'og:description',
-          name: 'og:description',
+          property: 'og:description',
           content: this.excerpt
         },
         {
           hid: 'twitter:description',
-          name: 'twitter:description',
+          property: 'twitter:description',
           content: this.excerpt
         },
         {
           hid: 'og:type',
-          name: 'og:type',
+          property: 'og:type',
           content: 'article'
         },
         {
           hid: 'twitter:card',
-          name: 'twitter:card',
+          property: 'twitter:card',
           content: 'summary'
         },
         {
           hid: 'og:url',
-          name: 'og:url',
+          property: 'og:url',
           content: 'http://swjh.io' + this.$nuxt.$route.fullPath
         },
         {
           hid: 'og:secure_url',
-          name: 'og:secure_url',
+          property: 'og:secure_url',
           content: 'https://swjh.io' + this.$nuxt.$route.fullPath
         },
         {
           hid: 'twitter:creator:id',
-          name: 'twitter:creator:id',
+          property: 'twitter:creator:id',
           content: '775311445248634880'
         }
         // {
