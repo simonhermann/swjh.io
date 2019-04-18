@@ -9,6 +9,7 @@
         :excerpt="post.previewText"
         :tags="post.tags"
         :slug="post.id"
+        :is_external="post.is_external"
         :external_link="post.external_link"
       />
     </section>

@@ -17,7 +17,7 @@ import AppLink from '@/components/AppLink.vue'
 export default {
   computed: {
     computedLink: function() {
-      return this.external_link ? this.external_link : '/blog/' + this.slug
+      return this.is_external ? this.external_link : '/blog/' + this.slug
     }
   },
   components: {
