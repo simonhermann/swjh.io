@@ -41,7 +41,7 @@ export default {
   font-size: 0.75rem;
   margin-right: 0.5em;
   padding: 0.5em;
-  background-color: #030303;
+  background-color: var(--c-darker);
 
   // &:hover {
   //   background-color: #313131;

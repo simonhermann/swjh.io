@@ -1,8 +1,7 @@
 <template>
   <section>
-    <h1>swjh.io</h1>
     <section>
-      <h2>Blog</h2>
+      <h2 hidden>Blog</h2>
       <PostPreview
         v-for="post in posts"
         :key="post.id"
@@ -70,9 +69,9 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="scss">
 /* Sample `apply` at-rules with Tailwind CSS */
-.container 
+ //.container 
   // @apply min-h-screen flex justify-center items-center text-center mx-auto;
 
 </style>

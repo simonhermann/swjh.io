@@ -2,7 +2,7 @@ body {
   min-height: 100vh;
   scroll-behavior: smooth;
   overflow-x: hidden;
-  color: var(--c-l);
+  color: var(--c-light);
   background-color: var(--c-bg);
 
   @extend %ext-nice-scrollbar;
@@ -10,12 +10,20 @@ body {
 
 ::selection {
   background: var(--c-1);
-  color: var(--c-l);
+  color: var(--c-light);
 }
 
 a {
   text-decoration: none;
-  color: var(--c-l);
+  color: var(--c-light);
+
+  &:not(.post-preview) {
+    transition: box-shadow 0.1s ease-out;
+    box-shadow: inset 0 -0.3em 0 var(--c-1);
+    &:hover {
+      box-shadow: inset 0 -1.2em 0 var(--c-2);
+    }
+  }
 }
 
 h1,
@@ -23,28 +31,29 @@ h2,
 h3,
 h4,
 h5 {
-  line-height: 1.2;
+  font-size: 1rem;
+  // line-height: 1.2;
   font-weight: 900;
-  margin-top: 2em;
+  // margin-top: 2em;
   margin-bottom: 1rem;
 }
 h1 {
-  line-height: 1;
-  margin-top: 4em;
-  margin-bottom: 2em;
-  font-size: 2.5rem;
+  // line-height: 1;
+  // margin-top: 2em;
+  // margin-bottom: 2em;
+  // font-size: 2.5rem;
 }
 h2 {
-  font-size: 1.5rem;
+  // font-size: 1.5rem;
 }
 h3 {
-  font-size: 1.25rem;
+  // font-size: 1.25rem;
 }
 h4 {
-  font-size: 1rem;
+  // font-size: 1rem;
 }
 h5 {
-  font-size: 1rem;
+  // font-size: 1rem;
 }
 
 p,
@@ -66,6 +75,9 @@ code {
   line-height: inherit;
   font-family: monospace;
   white-space: pre;
+  display: inline-block;
+  padding: 0.5rem;
+  background: var(--c-darker);
 }
 
 blockquote {

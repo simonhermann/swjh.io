@@ -1,6 +1,6 @@
 <template>
   <div id="post" v-editable="blok">
-    <article class="container mx-auto post-content">
+    <article class="container post-content">
       <header>
         <h1>{{ title }}</h1>
         <PostTags :tags="tags" />

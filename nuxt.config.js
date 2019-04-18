@@ -54,6 +54,8 @@ export default {
     '@nuxtjs/feed',
     // PurgeCSS
     'nuxt-purgecss',
+    // https://github.com/nuxt-community/style-resources-module
+    '@nuxtjs/style-resources',
     // Storyblok https://github.com/storyblok/storyblok-nuxt
     [
       'storyblok-nuxt',
@@ -151,6 +153,10 @@ export default {
       'page-enter',
       'page-leave-to'
     ]
+  },
+  styleResources: {
+    // Global scss vars and mixins
+    scss: ['~/assets/css/mixins.scss']
   },
   feed: [
     // TODO:

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <TheHeader class="container mx-auto"/>
-    <main class="container mx-auto">
+    <TheHeader class="container"/>
+    <main class="container">
       <nuxt/>
     </main>
     <!-- TheFooter -->

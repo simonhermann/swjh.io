@@ -12,8 +12,19 @@
 
   --c-3: #ffcb9a;
 
-  --c-l: #f1f1fd;
-  --c-d: #1a1a1d;
-  
-  --c-bg: var(--c-d);
+  --c-light: #f1f1fd;
+  --c-dark: #1a1a1d;
+  --c-darker: #030303;
+
+  --c-bg: var(--c-dark);
+
+  // --width-sm: 576px;
+  // --width-md: 768px;
+  // --width-lg: 992px;
+  // --width-xl: 1200px;
+
+  --width-sm: #{$width-sm};
+  --width-md: #{$width-md};
+  --width-lg: #{$width-lg};
+  --width-xl: #{$width-md};
 }

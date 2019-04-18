@@ -57,7 +57,7 @@ export default {
 <style lang="scss" scoped>
 .post-preview {
   display: block;
-  padding: 1rem;
+  padding: 1rem 0;
   &:hover {
     background: rgba(255, 255, 255, 0.2);
   }
