@@ -13,12 +13,12 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: info.title,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: info.description }
     ],
+    title: info.title,
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
@@ -161,7 +161,8 @@ export default {
     lang: 'en',
     display: 'minimal-ui',
     // display: 'standalone',
-    background_color: info.color,
+    theme_color: info.color,
+    background_color: info.color_bg,
     description: info.description,
     scope: '/',
     start_url: '/'
