@@ -1,6 +1,8 @@
 <template>
   <component v-bind="linkProps(to)">
-    <!-- TODO: make linter-compliant -->
+    <!-- TODO: make linter-compliant 
+    https://github.com/vuejs/vue-router/issues/1280
+    -->
     <slot></slot>
   </component>
 </template>
