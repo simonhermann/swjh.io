@@ -1,5 +1,5 @@
 <template>
-  <component v-bind="linkProps(to)">
+  <component functional v-bind="linkProps(to)">
     <!-- TODO: make linter-compliant 
     https://github.com/vuejs/vue-router/issues/1280
     -->

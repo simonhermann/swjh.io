@@ -38,7 +38,7 @@ export default {
 }
 .tag {
   display: inline;
-  font-size: 0.75rem;
+  // font-size: 0.75rem;
   margin-right: 0.5em;
   padding: 0.5em;
   background-color: var(--c-darker);

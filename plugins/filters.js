@@ -9,6 +9,10 @@ or:
 <div :inner-html.prop="content | markdown"></div>
 or:
 <div> {{ content | markdown }} </div> 
+
+
+https://marked.js.org/#/USING_ADVANCED.md#options
+
  */
 Vue.filter('markdown', markdown => {
   if (typeof markdown !== 'undefined') {
