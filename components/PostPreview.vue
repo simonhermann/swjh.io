@@ -1,6 +1,6 @@
 <template>
   <!-- <nuxt-link class="post-preview" :to="'/blog/' + slug"> -->
-  <nuxt-link class="post-preview" :to="computedLink">
+  <AppLink class="post-preview" :to="computedLink">
     <article>
       <div class="post-preview__content">
         <h3>{{ title }}</h3>
@@ -8,11 +8,12 @@
       </div>
       <PostTags v-if="tags && tags.length" :tags="tags" />
     </article>
-  </nuxt-link>
+  </AppLink>
 </template>
 
 <script>
 import PostTags from '@/components/PostTags.vue'
+import AppLink from '@/components/AppLink.vue'
 export default {
   computed: {
     computedLink: function() {
@@ -20,7 +21,8 @@ export default {
     }
   },
   components: {
-    PostTags
+    PostTags,
+    AppLink
   },
   props: {
     title: {

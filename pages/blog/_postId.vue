@@ -35,7 +35,18 @@ export default {
           hid: 'og:description',
           name: 'og:description',
           content: this.excerpt
+        },
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'article'
+        },
+        {
+          hid: 'og:url',
+          name: 'og:url',
+          content: 'http://swjh.io' + this.$nuxt.$route.fullPath
         }
+        // TODO: og:image
       ]
     }
   },
@@ -46,12 +57,12 @@ export default {
         version: context.isDev ? 'draft' : 'published'
       })
       .then(res => {
-        console.log(res)
+        // console.log(res)
         return {
           blok: res.data.story.content,
           title: res.data.story.content.title,
           content: res.data.story.content.content,
-          content: res.data.story.content.excerpt,
+          excerpt: res.data.story.content.excerpt,
           tags: res.data.story.tag_list
         }
       })
