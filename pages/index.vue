@@ -1,5 +1,6 @@
 <template>
-  <section>
+  <div>
+    <h1>swjh.io</h1>
     <section>
       <h2 hidden>Blog</h2>
       <PostPreview
@@ -17,7 +18,7 @@
       <!-- <h2>Projects</h2> -->
       <!-- <Projects/> -->
     </section>
-  </section>
+  </div>
 </template>
 
 <script>
