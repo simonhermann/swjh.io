@@ -3,7 +3,7 @@
   <AppLink class="post-preview" :to="computedLink">
     <article>
       <div class="post-preview__content">
-        <h3>{{ title }}</h3>
+        <h3 class="post-preview__heading">{{ title }}</h3>
         <p v-if="excerpt">{{ excerpt }}</p>
       </div>
       <PostTags v-if="tags && tags.length" :tags="tags" />
@@ -57,9 +57,24 @@ export default {
 <style lang="scss" scoped>
 .post-preview {
   display: block;
-  padding: 1rem 0;
+  padding: 2rem;
+  border: 2px solid var(--c-light);
+  border: 2px solid rgb(129, 129, 129);
+  // border-radius: 1rem 1rem 5rem 1rem / 50% 30% 10% 20%;
+  // border-radius: 1rem 1rem 5rem 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0.5rem 0.5rem var(--c-darkest);
   &:hover {
     background: rgba(255, 255, 255, 0.2);
+  }
+
+  &__heading {
+    font-size: 2rem;
+  }
+
+  &.link-external .post-preview__heading::after {
+    content: "external";
+    display: inline;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
-  <header>
-    <nav class="nav">
+  <header class="the-header">
+    <nav class="nav container">
       <ul class="nav-ul">
         <nuxt-link class="nav-li" tag="li" to="/">
           <a>swjh.io</a>
@@ -14,11 +14,15 @@
 </template>
 
 <style lang='scss' scoped>
+.the-header {
+  background: #000;
+}
 .nav {
 }
 .nav-ul {
   list-style: none;
-  padding: 0;
+  padding: 1rem 0;
+  margin: 0 0 2rem 0;
   display: flex;
   flex-direction: row;
 }

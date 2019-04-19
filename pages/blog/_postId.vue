@@ -2,6 +2,7 @@
   <div id="post" v-editable="blok">
     <article class="container post-content">
       <header>
+        <span>blog</span>
         <h1>{{ title }}</h1>
         <PostTags :tags="tags" />
       </header>

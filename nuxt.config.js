@@ -38,7 +38,8 @@ export default {
   plugins: [
     '~/plugins/components.js',
     '~/plugins/filters.js',
-    '~/plugins/v-lazy-image.js'
+    '~/plugins/v-lazy-image.js',
+    '~/plugins/global.js'
     // '~plugins/ga.client.js'
   ],
 

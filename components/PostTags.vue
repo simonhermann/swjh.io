@@ -35,13 +35,20 @@ export default {
 .tags {
   padding: 0;
   list-style: none;
+  display: flex;
 }
 .tag {
   display: inline;
-  // font-size: 0.75rem;
+  font-size: 0.75rem;
   margin-right: 0.5em;
-  padding: 0.5em;
+  padding: 0.5em 0.75em;
   background-color: var(--c-darker);
+  border-radius: 0.5em;
+  &::before {
+    content: '#';
+    display: inline;
+    margin-right: -0.1em;
+  }
 
   // &:hover {
   //   background-color: #313131;

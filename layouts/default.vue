@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TheHeader class="container"/>
+    <TheHeader/>
     <main class="container">
       <nuxt/>
     </main>
@@ -20,9 +20,6 @@ export default {
 
 
 <style lang="scss">
-body {
-  padding: 1rem;
-}
 // p {
 //   white-space: pre-line;
 // }

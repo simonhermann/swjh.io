@@ -42,7 +42,7 @@ export default {
             return {
               id: bp.slug,
               title: bp.content.title,
-              previewText: bp.content.summary,
+              previewText: bp.content.excerpt,
               tags: bp.tag_list,
               is_external: bp.content.is_external,
               external_link: bp.content.external_link
