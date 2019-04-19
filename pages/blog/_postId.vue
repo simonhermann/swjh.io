@@ -1,15 +1,12 @@
 <template>
-  <div id="post" v-editable="blok">
-    <article class="container post-content">
-      <header>
-        <span>blog</span>
-        <h1>{{ title }}</h1>
+  <div class="post" v-editable="blok">
+    <article class="container post__content">
+      <header class="post__header">
+        <!-- <span>blog</span> -->
+        <h1 class="post__heading">{{ title }}</h1>
         <PostTags :tags="tags" />
       </header>
-      <div
-        class="post-content__md"
-        v-html="$options.filters.markdown(content)"
-      ></div>
+      <div class="markdown" v-html="$options.filters.markdown(content)"></div>
     </article>
   </div>
 </template>
@@ -96,8 +93,9 @@ export default {
 }
 </script>
 
-<style>
-.post-content__md {
-  /* white-space: pre-line; */
+<style lang="scss" scoped>
+.post__header {
+  margin-top: 7rem;
+  margin-bottom: 5rem;
 }
 </style>

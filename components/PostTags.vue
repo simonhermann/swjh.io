@@ -38,12 +38,14 @@ export default {
   display: flex;
 }
 .tag {
+  // font-weight: bold;
+  letter-spacing: 0.5px;
   display: inline;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   margin-right: 0.5em;
   padding: 0.5em 0.75em;
   background-color: var(--c-darker);
-  border-radius: 0.5em;
+  // border-radius: 0.5em;
   &::before {
     content: '#';
     display: inline;

@@ -57,7 +57,7 @@ export default {
 <style lang="scss" scoped>
 .post-preview {
   display: block;
-  padding: 2rem;
+  padding: 2rem 2rem 1.5rem 2rem;
   border: 2px solid var(--c-light);
   border: 2px solid rgb(129, 129, 129);
   // border-radius: 1rem 1rem 5rem 1rem / 50% 30% 10% 20%;
@@ -72,9 +72,10 @@ export default {
     font-size: 2rem;
   }
 
-  &.link-external .post-preview__heading::after {
-    content: "external";
+  &.link--external .post-preview__heading::after {
+    content: ' (external)';
     display: inline;
+    opacity: 0.5;
   }
 }
 </style>
