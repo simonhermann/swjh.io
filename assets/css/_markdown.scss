@@ -24,9 +24,15 @@
     line-height: inherit;
     font-family: monospace;
     white-space: pre;
-    display: inline-block;
     padding: 0.5rem;
     background: var(--c-darker);
+  }
+  
+  pre {
+    display: block;
+  }
+  code {
+    display: inline-block;
   }
 
   blockquote {
