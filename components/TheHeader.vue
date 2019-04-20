@@ -30,7 +30,7 @@
   margin-right: 1rem;
 
   // box-shadow: inset 0 -0.3rem 0 var(--c-1);
-  box-shadow: inset 0 -0.3rem 0 rgba(0, 0, 0, 0);
+  // box-shadow: inset 0 -0.3rem 0 rgba(0, 0, 0, 0);
   transition: box-shadow 0.15s ease-out;
 
   &.nuxt-link-exact-active {

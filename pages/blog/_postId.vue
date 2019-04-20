@@ -6,7 +6,7 @@
         <h1 class="post__heading">{{ title }}</h1>
         <PostTags :tags="tags" />
       </header>
-      <div class="markdown" v-html="$options.filters.markdown(content)"></div>
+      <div class="markdown underline-effect" v-html="$options.filters.markdown(content)"></div>
     </article>
   </div>
 </template>

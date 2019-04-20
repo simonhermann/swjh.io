@@ -1,5 +1,5 @@
 <template>
-  <footer class="imprint container">
+  <footer class="footer container">
     <nuxt-link to="/imprint">Imprint</nuxt-link>
   </footer>
 </template>
@@ -9,7 +9,7 @@ export default {}
 </script>
 
 <style lang='scss' scoped>
-.imprint {
+.footer {
   margin-top: 4rem;
   margin-bottom: 2rem;
   font-size: 1rem;
