@@ -12,3 +12,6 @@ https://swjh.netlify.com/* https://swjh.io/:splat 301!
 
 # Trigger netlify build hook
 /build https://reqbin.com/x0y9hity 301
+
+# shorthand for feed
+/feed /feed.xml 301

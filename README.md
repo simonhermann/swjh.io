@@ -9,6 +9,8 @@
 - https://www.storyblok.com/tp/headless-cms-nuxtjs
 - https://www.storyblok.com/tp/nuxt-js-multilanguage-website-tutorial
 
+https://www.storyblok.com/docs/image-service
+
 ## Build Setup
 
 ``` bash

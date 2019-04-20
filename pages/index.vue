@@ -37,7 +37,7 @@ export default {
         starts_with: 'blog/'
       })
       .then(res => {
-        console.log(res.data.stories)
+        // console.log(res.data.stories)
         return {
           posts: res.data.stories.map(bp => {
             return {

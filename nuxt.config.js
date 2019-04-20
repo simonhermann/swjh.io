@@ -5,6 +5,7 @@ const tailwindcss = require('tailwindcss')
 const purgecss = require('@fullhuman/postcss-purgecss')
 const cssnano = require('cssnano')
 const autoprefixer = require('autoprefixer')
+const sbLiveToken = '1r8e3Qeyz2NeNrMKKptY4gtt'
 
 export default {
   mode: 'universal',
@@ -160,7 +161,82 @@ export default {
     scss: ['~/assets/css/mixins.scss']
   },
   feed: [
-    // TODO:
+    /*
+     * RSS Feed
+     * https://github.com/nuxt-community/feed-module
+     * https://github.com/jpmonette/feed
+     */
+    {
+      path: '/feed.xml',
+      type: 'rss2',
+      async create(feed) {
+        feed.options = {
+          title: info.name,
+          language: 'en',
+          link: 'http://swjh.io/feed.xml',
+          description: info.description
+        }
+
+        // const posts = await axios.get('https://blog-api.lichter.io/posts').data
+
+        // const posts = await axios
+        //   .get(
+        //     'https://api.storyblok.com/v1/cdn/stories?version=published&token=O5PSiXQfVrHAbsH2Io9mlwtt&starts_with=blog&cv=' +
+        //       Math.floor(Date.now() / 1e3).data
+        //   )
+        axios
+          .get(
+            'https://api.storyblok.com/v1/cdn/stories?version=published&token=O5PSiXQfVrHAbsH2Io9mlwtt&starts_with=blog&cv=' +
+              Math.floor(Date.now() / 1e3).data
+          )
+          .then(res => {
+            // console.log(res.data)
+            const posts = res.data.stories
+            // console.log(posts)
+            console.log(typeof posts)
+            console.log(Object.values(posts))
+            console.log(Object.entries(posts))
+            // posts.forEach(post => {
+            //   feed.addItem({
+            //     title: post.content.title ? post.content.title : post.name,
+            //     id: post.slug,
+            //     link: post.content.is_external
+            //       ? post.content.external_link
+            //       : 'http://swjh.io/blog/' + post.slug,
+            //     description: post.content.excerpt ? post.content.excerpt : '',
+            //     guid: post.uuid
+            //     // content: post.content
+            //   })
+            // })
+          })
+          .catch(res => {
+            if (!res.response) {
+              console.error(res)
+              context.error({
+                statusCode: 404,
+                message: 'Failed to receive content form api'
+              })
+            } else {
+              console.error(res.response.data)
+              context.error({
+                statusCode: res.response.status,
+                message: res.response.data
+              })
+            }
+          })
+
+        feed.addCategory('Technology')
+        feed.addCategory('Tech')
+        feed.addCategory('Web Development')
+        feed.addCategory('Design')
+
+        feed.addContributor({
+          name: 'Simon Hermann',
+          // email: 'mail@swjh.io',
+          link: 'http://swjh.io'
+        })
+      }
+    }
   ],
   manifest: {
     name: info.name,
