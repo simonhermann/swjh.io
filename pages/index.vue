@@ -37,12 +37,12 @@ export default {
         starts_with: 'blog/'
       })
       .then(res => {
-        // console.log(res.data.stories)
+        console.log(res.data.stories)
         return {
           posts: res.data.stories.map(bp => {
             return {
               id: bp.slug,
-              title: bp.content.title,
+              title: bp.content.title ? bp.content.title : bp.name,
               previewText: bp.content.excerpt,
               tags: bp.tag_list,
               is_external: bp.content.is_external,
