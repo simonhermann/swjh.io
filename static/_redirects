@@ -9,3 +9,6 @@ https://swjh.netlify.com/* https://swjh.io/:splat 301!
 
 # redirect all dead links to index
 # /* /index 301
+
+# Trigger netlify build hook
+/build https://reqbin.com/x0y9hity 301
