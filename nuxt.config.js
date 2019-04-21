@@ -1,8 +1,8 @@
 // import pkg from './package'
+import path from 'path'
 import info from './content/info.json'
-const axios = require('axios')
-const purgecss = require('@fullhuman/postcss-purgecss')
-const cssnano = require('cssnano')
+import axios from 'axios'
+
 const sbPublicToken = 'O5PSiXQfVrHAbsH2Io9mlwtt'
 const sbPreviewToken = '1r8e3Qeyz2NeNrMKKptY4gtt'
 const sbLiveGetUrl =
@@ -84,37 +84,23 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extractCSS: false,
     postcss: {
-      plugins: [
-        require('tailwindcss')('./tailwind.config.js'),
-        // Autoprefixer: https://github.com/postcss/autoprefixer
-        require('autoprefixer')({
+      plugins: {
+        'tailwindcss': path.resolve(__dirname, './tailwind.config.js'), 
+      },
+      preset: {
+        // Change the postcss-preset-env settings
+        stage: 0,
+        autoprefixer: {
           cascade: false, // don't indent prefixes
           grid: 'autoplace' // enable IE polyfill for css grid
-        }),
-        // postcss-preset-env: determines which CSS features to polyfill
-        // Doc: https://github.com/csstools/postcss-preset-env
-        require('postcss-preset-env')({
-          stage: 0
-        }),
-        purgecss({
-          content: [
-            'components/**/*.vue',
-            'layouts/**/*.vue',
-            'pages/**/*.vue',
-            'plugins/**/*.js',
-            'assets/**/*.css',
-            'assets/**/*.scss'
-          ]
-        }),
-        // cssnano (minify) https://github.com/cssnano/cssnano
-        cssnano({
+        },
+        cssnano: {
           preset: 'default',
           discardComments: { removeAll: true },
           zindex: false
-        })
-      ]
+        }
+      }
     },
     extend(config, ctx) {}
   },
@@ -148,15 +134,9 @@ export default {
     // Doc: https://github.com/Developmint/nuxt-purgecss
     mode: 'postcss',
     whitelist: [
-      'html',
-      'body',
-      'nuxt-progress',
-      'is-active',
-      'page-enter-active',
-      'page-leave-active',
-      'page-enter',
-      'page-leave-to'
-    ]
+      'is-active'
+    ],
+    whitelistPatterns: [/page/]
   },
   styleResources: {
     // Global scss vars and mixins
@@ -179,25 +159,17 @@ export default {
           description: info.description
         }
 
-        // TODO: not working
-
-        axios
-          .get(
-            sbLiveGetUrl + '&starts_with=blog'
-          )
-          .then(res => {
-            console.log(res.data.stories)
-            res.data.stories.forEach(post => {
-              // feedItems.push(post)
-              feed.addItem({
-                title: post.content.title ? post.content.title : post.name,
-                link: post.content.is_external
-                  ? post.content.external_link
-                  : 'http://swjh.io/blog/' + post.slug
-                // description: post.content.excerpt ? post.content.excerpt : null
-              })
-            })
+        const { data } = await axios.get(sbLiveGetUrl + '&starts_with=blog')
+        data.stories.forEach(post => {
+          // feedItems.push(post)
+          feed.addItem({
+            title: post.content.title ? post.content.title : post.name,
+            link: post.content.is_external
+              ? post.content.external_link
+              : 'http://swjh.io/blog/' + post.slug
+            // description: post.content.excerpt ? post.content.excerpt : null
           })
+        })
 
         /* const posts = await axios.get(
           sbLiveGetUrl + '&starts_with=blog'
