@@ -84,37 +84,23 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extractCSS: false,
     postcss: {
-      plugins: [
-        require('tailwindcss')('./tailwind.config.js'),
-        // Autoprefixer: https://github.com/postcss/autoprefixer
-        require('autoprefixer')({
+      plugins: {
+        'tailwindcss': path.resolve(__dirname, 'tailwind.js'), 
+      },
+      preset: {
+        // Change the postcss-preset-env settings
+        stage: 0,
+        autoprefixer: {
           cascade: false, // don't indent prefixes
           grid: 'autoplace' // enable IE polyfill for css grid
-        }),
-        // postcss-preset-env: determines which CSS features to polyfill
-        // Doc: https://github.com/csstools/postcss-preset-env
-        require('postcss-preset-env')({
-          stage: 0
-        }),
-        purgecss({
-          content: [
-            'components/**/*.vue',
-            'layouts/**/*.vue',
-            'pages/**/*.vue',
-            'plugins/**/*.js',
-            'assets/**/*.css',
-            'assets/**/*.scss'
-          ]
-        }),
-        // cssnano (minify) https://github.com/cssnano/cssnano
-        cssnano({
+        },
+        cssnano: {
           preset: 'default',
           discardComments: { removeAll: true },
           zindex: false
-        })
-      ]
+        }
+      }
     },
     extend(config, ctx) {}
   },
