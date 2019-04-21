@@ -1,4 +1,5 @@
 // import pkg from './package'
+import path from 'path'
 import info from './content/info.json'
 const axios = require('axios')
 const purgecss = require('@fullhuman/postcss-purgecss')
