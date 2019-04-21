@@ -5,6 +5,12 @@ const purgecss = require('@fullhuman/postcss-purgecss')
 const cssnano = require('cssnano')
 const sbPublicToken = 'O5PSiXQfVrHAbsH2Io9mlwtt'
 const sbPreviewToken = '1r8e3Qeyz2NeNrMKKptY4gtt'
+const sbLiveGetUrl =
+  'https://api.storyblok.com/v1/cdn/stories?version=published&token=' +
+  sbPublicToken +
+  '&cv=' +
+  Math.floor(Date.now() / 1e3)
+// const sbLiveGetUrl_posts = sbLiveGetUrl + '&starts_with=blog'
 
 export default {
   mode: 'universal',
@@ -126,10 +132,7 @@ export default {
     routes: function() {
       return axios
         .get(
-          'https://api.storyblok.com/v1/cdn/stories?version=published&token=' +
-            sbPublicToken +
-            '&starts_with=blog&cv=' +
-            Math.floor(Date.now() / 1e3)
+          sbLiveGetUrl + '&starts_with=blog'
         )
         .then(res => {
           const blogPosts = res.data.stories.map(bp => bp.full_slug)
@@ -178,12 +181,9 @@ export default {
 
         // TODO: not working
 
-        /* axios
+        axios
           .get(
-            'https://api.storyblok.com/v1/cdn/stories?version=published&token=' +
-              sbPublicToken +
-              '&starts_with=blog&cv=' +
-              Math.floor(Date.now() / 1e3)
+            sbLiveGetUrl + '&starts_with=blog'
           )
           .then(res => {
             console.log(res.data.stories)
@@ -193,20 +193,16 @@ export default {
                 title: post.content.title ? post.content.title : post.name,
                 link: post.content.is_external
                   ? post.content.external_link
-                  : 'http://swjh.io/blog/' + post.slug,
+                  : 'http://swjh.io/blog/' + post.slug
                 // description: post.content.excerpt ? post.content.excerpt : null
               })
             })
-          }) */
+          })
 
-        const posts = await axios.get(
-          'https://api.storyblok.com/v1/cdn/stories?version=published&token=' +
-            sbPublicToken +
-            '&starts_with=blog&cv=' +
-            Math.floor(Date.now() / 1e3)
-        ).data.stories
-
-        posts.forEach(post => {
+        /* const posts = await axios.get(
+          sbLiveGetUrl + '&starts_with=blog'
+        ).data
+        posts.stories.forEach(post => {
           feed.addItem({
             title: post.content.title ? post.content.title : post.name,
             link: post.content.is_external
@@ -214,7 +210,7 @@ export default {
               : 'http://swjh.io/blog/' + post.slug,
             description: post.content.excerpt ? post.content.excerpt : ''
           })
-        })
+        }) */
 
         feed.addCategory('Technology')
         feed.addCategory('Tech')
