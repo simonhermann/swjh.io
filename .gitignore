@@ -84,3 +84,4 @@ dist
 sw.*
 
 /ignore/*
+static/feed.xml

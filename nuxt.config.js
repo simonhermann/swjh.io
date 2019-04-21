@@ -165,6 +165,7 @@ export default {
      * RSS Feed
      * https://github.com/nuxt-community/feed-module
      * https://github.com/jpmonette/feed
+     * https://www.storyblok.com/tp/how-to-generate-an-rss-feed-with-a-headless-cms
      */
     {
       path: '/feed.xml',
@@ -177,52 +178,30 @@ export default {
           description: info.description
         }
 
-        // const posts = await axios.get('https://blog-api.lichter.io/posts').data
-
-        // const posts = await axios
-        //   .get(
-        //     'https://api.storyblok.com/v1/cdn/stories?version=published&token=O5PSiXQfVrHAbsH2Io9mlwtt&starts_with=blog&cv=' +
-        //       Math.floor(Date.now() / 1e3).data
-        //   )
         axios
           .get(
             'https://api.storyblok.com/v1/cdn/stories?version=published&token=O5PSiXQfVrHAbsH2Io9mlwtt&starts_with=blog&cv=' +
               Math.floor(Date.now() / 1e3).data
           )
           .then(res => {
-            // console.log(res.data)
-            const posts = res.data.stories
+            let posts = res.data.stories
+            // const posts = Object.entries(postsObject)
             // console.log(posts)
-            console.log(typeof posts)
-            console.log(Object.values(posts))
-            console.log(Object.entries(posts))
-            // posts.forEach(post => {
-            //   feed.addItem({
-            //     title: post.content.title ? post.content.title : post.name,
-            //     id: post.slug,
-            //     link: post.content.is_external
-            //       ? post.content.external_link
-            //       : 'http://swjh.io/blog/' + post.slug,
-            //     description: post.content.excerpt ? post.content.excerpt : '',
-            //     guid: post.uuid
-            //     // content: post.content
-            //   })
-            // })
-          })
-          .catch(res => {
-            if (!res.response) {
-              console.error(res)
-              context.error({
-                statusCode: 404,
-                message: 'Failed to receive content form api'
+            posts.forEach(post => {
+              // console.log('post: ' + post.name)
+              feed.addItem({
+                title: post.content.title ? post.content.title : post.name,
+                id: post.slug,
+                link: post.content.is_external
+                  ? post.content.external_link
+                  : 'http://swjh.io/blog/' + post.slug,
+                description: post.content.excerpt ? post.content.excerpt : '',
+                guid: post.uuid,
+                // content: post.content
               })
-            } else {
-              console.error(res.response.data)
-              context.error({
-                statusCode: res.response.status,
-                message: res.response.data
-              })
-            }
+              // console.log(feed)
+              console.log(feed.rss2())
+            })
           })
 
         feed.addCategory('Technology')
