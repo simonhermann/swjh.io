@@ -1,11 +1,10 @@
 // import pkg from './package'
 import info from './content/info.json'
 const axios = require('axios')
-const tailwindcss = require('tailwindcss')
 const purgecss = require('@fullhuman/postcss-purgecss')
 const cssnano = require('cssnano')
-const autoprefixer = require('autoprefixer')
-const sbLiveToken = '1r8e3Qeyz2NeNrMKKptY4gtt'
+const sbPublicToken = 'O5PSiXQfVrHAbsH2Io9mlwtt'
+const sbPreviewToken = '1r8e3Qeyz2NeNrMKKptY4gtt'
 
 export default {
   mode: 'universal',
@@ -63,9 +62,7 @@ export default {
       'storyblok-nuxt',
       {
         accessToken:
-          process.env.NODE_ENV == 'production'
-            ? 'O5PSiXQfVrHAbsH2Io9mlwtt'
-            : '1r8e3Qeyz2NeNrMKKptY4gtt'
+          process.env.NODE_ENV == 'production' ? sbPublicToken : sbPreviewToken
       }
     ]
   ],
@@ -129,7 +126,9 @@ export default {
     routes: function() {
       return axios
         .get(
-          'https://api.storyblok.com/v1/cdn/stories?version=published&token=O5PSiXQfVrHAbsH2Io9mlwtt&starts_with=blog&cv=' +
+          'https://api.storyblok.com/v1/cdn/stories?version=published&token=' +
+            sbPublicToken +
+            '&starts_with=blog&cv=' +
             Math.floor(Date.now() / 1e3)
         )
         .then(res => {
@@ -169,40 +168,53 @@ export default {
      */
     {
       path: '/feed.xml',
-      type: 'rss2',
       async create(feed) {
         feed.options = {
           title: info.name,
           language: 'en',
-          link: 'http://swjh.io/feed.xml',
+          link: 'http://swjh.io',
           description: info.description
         }
 
-        axios
+        // TODO: not working
+
+        /* axios
           .get(
-            'https://api.storyblok.com/v1/cdn/stories?version=published&token=O5PSiXQfVrHAbsH2Io9mlwtt&starts_with=blog&cv=' +
-              Math.floor(Date.now() / 1e3).data
+            'https://api.storyblok.com/v1/cdn/stories?version=published&token=' +
+              sbPublicToken +
+              '&starts_with=blog&cv=' +
+              Math.floor(Date.now() / 1e3)
           )
           .then(res => {
-            let posts = res.data.stories
-            // const posts = Object.entries(postsObject)
-            // console.log(posts)
-            posts.forEach(post => {
-              // console.log('post: ' + post.name)
+            console.log(res.data.stories)
+            res.data.stories.forEach(post => {
+              // feedItems.push(post)
               feed.addItem({
                 title: post.content.title ? post.content.title : post.name,
-                id: post.slug,
                 link: post.content.is_external
                   ? post.content.external_link
                   : 'http://swjh.io/blog/' + post.slug,
-                description: post.content.excerpt ? post.content.excerpt : '',
-                guid: post.uuid,
-                // content: post.content
+                // description: post.content.excerpt ? post.content.excerpt : null
               })
-              // console.log(feed)
-              console.log(feed.rss2())
             })
+          }) */
+
+        const posts = await axios.get(
+          'https://api.storyblok.com/v1/cdn/stories?version=published&token=' +
+            sbPublicToken +
+            '&starts_with=blog&cv=' +
+            Math.floor(Date.now() / 1e3)
+        ).data.stories
+
+        posts.forEach(post => {
+          feed.addItem({
+            title: post.content.title ? post.content.title : post.name,
+            link: post.content.is_external
+              ? post.content.external_link
+              : 'http://swjh.io/blog/' + post.slug,
+            description: post.content.excerpt ? post.content.excerpt : ''
           })
+        })
 
         feed.addCategory('Technology')
         feed.addCategory('Tech')
@@ -214,7 +226,10 @@ export default {
           // email: 'mail@swjh.io',
           link: 'http://swjh.io'
         })
-      }
+      },
+      // cacheTime: 1000 * 60 * 15,
+      cacheTime: 0,
+      type: 'rss2'
     }
   ],
   manifest: {
