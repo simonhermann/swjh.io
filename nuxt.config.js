@@ -148,15 +148,9 @@ export default {
     // Doc: https://github.com/Developmint/nuxt-purgecss
     mode: 'postcss',
     whitelist: [
-      'html',
-      'body',
-      'nuxt-progress',
-      'is-active',
-      'page-enter-active',
-      'page-leave-active',
-      'page-enter',
-      'page-leave-to'
-    ]
+      'is-active'
+    ],
+    whitelistPatterns: [/page/]
   },
   styleResources: {
     // Global scss vars and mixins
