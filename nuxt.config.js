@@ -159,25 +159,17 @@ export default {
           description: info.description
         }
 
-        // TODO: not working
-
-        axios
-          .get(
-            sbLiveGetUrl + '&starts_with=blog'
-          )
-          .then(res => {
-            console.log(res.data.stories)
-            res.data.stories.forEach(post => {
-              // feedItems.push(post)
-              feed.addItem({
-                title: post.content.title ? post.content.title : post.name,
-                link: post.content.is_external
-                  ? post.content.external_link
-                  : 'http://swjh.io/blog/' + post.slug
-                // description: post.content.excerpt ? post.content.excerpt : null
-              })
-            })
+        const { data } = await axios.get(sbLiveGetUrl + '&starts_with=blog')
+        data.stories.forEach(post => {
+          // feedItems.push(post)
+          feed.addItem({
+            title: post.content.title ? post.content.title : post.name,
+            link: post.content.is_external
+              ? post.content.external_link
+              : 'http://swjh.io/blog/' + post.slug
+            // description: post.content.excerpt ? post.content.excerpt : null
           })
+        })
 
         /* const posts = await axios.get(
           sbLiveGetUrl + '&starts_with=blog'
