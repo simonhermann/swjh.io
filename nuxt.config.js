@@ -1,9 +1,8 @@
 // import pkg from './package'
 import path from 'path'
 import info from './content/info.json'
-const axios = require('axios')
-const purgecss = require('@fullhuman/postcss-purgecss')
-const cssnano = require('cssnano')
+import axios from 'axios'
+
 const sbPublicToken = 'O5PSiXQfVrHAbsH2Io9mlwtt'
 const sbPreviewToken = '1r8e3Qeyz2NeNrMKKptY4gtt'
 const sbLiveGetUrl =
