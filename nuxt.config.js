@@ -130,7 +130,7 @@ export default {
     // CSS tree shaking
     // Doc: https://github.com/Developmint/nuxt-purgecss
     mode: 'postcss',
-    whitelist: ['is-active', 'markdown'], // https://github.com/FullHuman/purgecss-docs/blob/master/whitelisting.md
+    whitelist: ['is-active'], // https://github.com/FullHuman/purgecss-docs/blob/master/whitelisting.md
     whitelistPatterns: [/page/]
   },
   styleResources: {

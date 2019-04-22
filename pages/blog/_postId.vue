@@ -83,7 +83,7 @@ export default {
         // console.log(res)
         return {
           blok: res.data.story.content,
-          title: res.data.story.content.title,
+          title: res.data.story.content.title ? res.data.story.content.title : res.data.story.name,
           content: res.data.story.content.content,
           excerpt: res.data.story.content.excerpt,
           tags: res.data.story.tag_list

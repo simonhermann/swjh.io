@@ -1,5 +1,6 @@
+/* purgecss start ignore */
 .markdown {
-  // white-space: pre-line;
+  white-space: pre-line;
   p,
   ul,
   ol,
@@ -24,11 +25,11 @@
     line-height: inherit;
     font-family: monospace;
     white-space: pre;
-    padding: 0.5rem;
     background: var(--c-darker);
   }
   
   pre {
+    padding: 0.5rem;
     display: block;
   }
   code {
@@ -45,3 +46,4 @@
     background: rgba(255, 255, 255, 0.25);
   }
 }
+/* purgecss end ignore */
