@@ -85,8 +85,9 @@ export default {
      ** You can extend webpack config here
      */
     postcss: {
+      // https://nuxtjs.org/faq/postcss-plugins/
       plugins: {
-        'tailwindcss': path.resolve(__dirname, './tailwind.config.js'), 
+        tailwindcss: path.resolve(__dirname, './tailwind.config.js')
       },
       preset: {
         // Change the postcss-preset-env settings
@@ -116,14 +117,10 @@ export default {
    */
   generate: {
     routes: function() {
-      return axios
-        .get(
-          sbLiveGetUrl + '&starts_with=blog'
-        )
-        .then(res => {
-          const blogPosts = res.data.stories.map(bp => bp.full_slug)
-          return ['/', '/about', ...blogPosts]
-        })
+      return axios.get(sbLiveGetUrl + '&starts_with=blog').then(res => {
+        const blogPosts = res.data.stories.map(bp => bp.full_slug)
+        return ['/', '/about', ...blogPosts]
+      })
     }
   },
   /*
@@ -133,9 +130,7 @@ export default {
     // CSS tree shaking
     // Doc: https://github.com/Developmint/nuxt-purgecss
     mode: 'postcss',
-    whitelist: [
-      'is-active'
-    ],
+    whitelist: ['is-active', 'markdown'], // https://github.com/FullHuman/purgecss-docs/blob/master/whitelisting.md
     whitelistPatterns: [/page/]
   },
   styleResources: {
@@ -161,28 +156,14 @@ export default {
 
         const { data } = await axios.get(sbLiveGetUrl + '&starts_with=blog')
         data.stories.forEach(post => {
-          // feedItems.push(post)
-          feed.addItem({
-            title: post.content.title ? post.content.title : post.name,
-            link: post.content.is_external
-              ? post.content.external_link
-              : 'http://swjh.io/blog/' + post.slug
-            // description: post.content.excerpt ? post.content.excerpt : null
-          })
-        })
-
-        /* const posts = await axios.get(
-          sbLiveGetUrl + '&starts_with=blog'
-        ).data
-        posts.stories.forEach(post => {
           feed.addItem({
             title: post.content.title ? post.content.title : post.name,
             link: post.content.is_external
               ? post.content.external_link
               : 'http://swjh.io/blog/' + post.slug,
-            description: post.content.excerpt ? post.content.excerpt : ''
+            description: post.content.excerpt ? post.content.excerpt : null
           })
-        }) */
+        })
 
         feed.addCategory('Technology')
         feed.addCategory('Tech')
@@ -195,8 +176,7 @@ export default {
           link: 'http://swjh.io'
         })
       },
-      // cacheTime: 1000 * 60 * 15,
-      cacheTime: 0,
+      cacheTime: 1000 * 60 * 15,
       type: 'rss2'
     }
   ],
@@ -206,8 +186,8 @@ export default {
     lang: 'en',
     display: 'minimal-ui',
     // display: 'standalone',
-    theme_color: info.color,
-    background_color: info.color_bg,
+    theme_color: info.color_bg,
+    background_color: info.color,
     description: info.description,
     scope: '/',
     start_url: '/'
