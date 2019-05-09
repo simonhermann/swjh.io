@@ -31,6 +31,8 @@
   pre {
     padding: 0.5rem;
     display: block;
+    overflow-x: scroll;
+    @extend %ext-nice-scrollbar;
   }
   code {
     display: inline-block;
