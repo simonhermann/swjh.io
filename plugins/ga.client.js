@@ -10,10 +10,11 @@ export default ({ app }) => {
    */
   if (process.env.NODE_ENV !== 'production') return
 
+  var gaProperty = 'UA-136598647-2'
+  
   /*
    ** Let users opt-out
    */
-  var gaProperty = 'UA-136598647-1'
   var disableStr = 'ga-disable-' + gaProperty
   if (document.cookie.indexOf(disableStr + '=true') > -1) {
     window[disableStr] = true
@@ -48,7 +49,7 @@ export default ({ app }) => {
     'ga'
   )
 
-  ga('create', 'UA-136598647-1', 'auto')
+  ga('create', gaProperty, 'auto')
   app.router.afterEach((to, from) => {
     /*
      ** We tell Google Analytics to add a `pageview`
