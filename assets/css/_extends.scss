@@ -8,11 +8,13 @@
   }
   &::-webkit-scrollbar-button {
     &:vertical,
+    &:horizontal,
     &:start:decrement,
     &:end:increment {
       display: block;
     }
-    &:vertical {
+    &:vertical,
+    &:horizontal {
       &:start:increment,
       &:end:decrement,
       &:increment,
@@ -21,21 +23,65 @@
       }
     }
   }
-  &::-webkit-scrollbar-track:vertical {
+  &::-webkit-scrollbar-track:vertical,
+  &::-webkit-scrollbar-track:horizontal {
     display: none;
   }
   &::-webkit-scrollbar-track-piece {
     background-color: transparent;
   }
-  &::-webkit-scrollbar-thumb:vertical {
+  &::-webkit-scrollbar-thumb:vertical,
+  &::-webkit-scrollbar-thumb:horizontal {
     background-color: rgba(200, 200, 200, 0.5);
     border-radius: 6px;
   }
-  &:hover::-webkit-scrollbar-thumb:vertical {
+  &:hover::-webkit-scrollbar-thumb:vertical,
+  &:hover::-webkit-scrollbar-thumb:horizontal {
     background-color: rgba(200, 200, 200, 0.25);
   }
   &::-webkit-scrollbar-corner:vertical,
-  &::-webkit-scrollbar-resizer:vertical {
+  &::-webkit-scrollbar-corner:horizontal,
+  &::-webkit-scrollbar-resizer:vertical,
+  &::-webkit-scrollbar-resizer:horizontal {
+    background-color: transparent;
+  }
+}
+
+%ext-nice-scrollbar-y {
+  &::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+  &::-webkit-scrollbar-button {
+    &:horizontal,
+    &:start:decrement,
+    &:end:increment {
+      display: block;
+    }
+    &:horizontal {
+      &:start:increment,
+      &:end:decrement,
+      &:increment,
+      &:decrement {
+        display: none;
+      }
+    }
+  }
+  &::-webkit-scrollbar-track:horizontal {
+    display: none;
+  }
+  &::-webkit-scrollbar-track-piece {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb:horizontal {
+    background-color: rgba(200, 200, 200, 0.5);
+    border-radius: 6px;
+  }
+  &:hover::-webkit-scrollbar-thumb:horizontal {
+    background-color: rgba(200, 200, 200, 0.25);
+  }
+  &::-webkit-scrollbar-corner:horizontal,
+  &::-webkit-scrollbar-resizer:horizontal {
     background-color: transparent;
   }
 }

@@ -32,6 +32,7 @@
     padding: 0.5rem;
     display: block;
     overflow-x: scroll;
+    font-size: 1rem;
     @extend %ext-nice-scrollbar;
   }
   code {
