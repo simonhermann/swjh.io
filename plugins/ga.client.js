@@ -10,8 +10,8 @@ export default ({ app }) => {
    */
   if (process.env.NODE_ENV !== 'production') return
 
-  var gaProperty = 'UA-136598647-2'
-  
+  var gaProperty = 'UA-136598647-3'
+
   /*
    ** Let users opt-out
    */
@@ -50,12 +50,12 @@ export default ({ app }) => {
   )
 
   ga('create', gaProperty, 'auto')
+  ga('set', 'anonymizeIp', true)
   app.router.afterEach((to, from) => {
     /*
      ** We tell Google Analytics to add a `pageview`
      */
     ga('set', 'page', to.fullPath)
-    ga('set', 'anonymizeIp', true)
     ga('send', 'pageview')
   })
 }
