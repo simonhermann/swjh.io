@@ -5,9 +5,9 @@
         <nuxt-link class="nav-li" tag="li" to="/">
           <a>swjh.io</a>
         </nuxt-link>
-        <nuxt-link class="nav-li" tag="li" to="/about">
+        <!-- <nuxt-link class="nav-li" tag="li" to="/about">
           <a>about</a>
-        </nuxt-link>
+        </nuxt-link> -->
       </ul>
     </nav>
   </header>

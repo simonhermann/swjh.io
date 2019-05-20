@@ -59,13 +59,13 @@ export default {
   display: block;
   padding: 2rem 2rem 1.5rem 2rem;
   border: 2px solid var(--c-light);
-  border: 2px solid rgb(129, 129, 129);
+  border: 2px solid var(--c-darkest);
   // border-radius: 1rem 1rem 5rem 1rem / 50% 30% 10% 20%;
   // border-radius: 1rem 1rem 5rem 1rem;
   margin-bottom: 2rem;
   box-shadow: 0.5rem 0.5rem var(--c-darkest);
   &:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
   }
 
   &__heading {

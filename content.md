@@ -2,6 +2,8 @@
 
 TODO:
 
+- fix redirect from https://swjh.io
+
 ## Tags / collections
 
 - performance
@@ -29,10 +31,8 @@ TODO:
 - Redirect 404 in nuxt *.vue
 - Netlify redirect dead links
 
-- 3 ways of getting NODE_ENV in nuxt`
+- 2 ways of getting NODE_ENV in nuxt`
 ```js
     process.env.NODE_ENV == "production" ? "published" : "draft"
     context.isDev ? 'draft' : 'published' // only where context is available
 ```
-
-- Dark/light switch with css vars https://dev.to/ananyaneogi/create-a-dark-light-mode-switch-with-css-variables-34l8?utm_source=digest_mailer&utm_medium=email&utm_campaign=digest_email

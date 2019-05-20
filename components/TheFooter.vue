@@ -1,6 +1,6 @@
 <template>
   <footer class="footer container">
-    <nuxt-link to="/imprint">Imprint</nuxt-link>
+    <!-- <nuxt-link to="/imprint">Imprint</nuxt-link> -->
   </footer>
 </template>
 

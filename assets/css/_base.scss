@@ -12,7 +12,7 @@ body {
   color: var(--c-light);
   background-color: var(--c-bg);
 
-  @extend %ext-nice-scrollbar;
+  @extend %ext-nice-scrollbar-x;
 }
 
 ::selection {

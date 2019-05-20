@@ -33,7 +33,7 @@
     display: block;
     overflow-x: scroll;
     font-size: 1rem;
-    @extend %ext-nice-scrollbar;
+    @extend %ext-nice-scrollbar-y;
   }
   code {
     display: inline-block;
