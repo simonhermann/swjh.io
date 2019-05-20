@@ -1,20 +1,31 @@
 <template>
   <div>
-    <TheHeader/>
+    <TheHeader />
     <main class="container">
-      <nuxt/>
+      <nuxt />
     </main>
-    <TheFooter/>
+    <TheFooter />
   </div>
 </template>
 
 <script>
 import TheHeader from '@/components/TheHeader.vue'
-import TheFooter from '@/components/TheFooter.vue';
+import TheFooter from '@/components/TheFooter.vue'
 
 export default {
   components: {
-    TheHeader, TheFooter
+    TheHeader,
+    TheFooter
+  },
+  head() {
+    return {
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://www.swjh.io' + this.$route.path
+        }
+      ]
+    }
   }
 }
 </script>
