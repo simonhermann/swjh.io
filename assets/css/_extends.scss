@@ -42,6 +42,7 @@
   }
 }
 
+/* purgecss start ignore */
 %ext-nice-scrollbar-y {
   &::-webkit-scrollbar {
     height: 10px;
@@ -80,3 +81,4 @@
     background-color: transparent;
   }
 }
+/* purgecss end ignore */
