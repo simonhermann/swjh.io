@@ -16,7 +16,7 @@
   }
 
   li {
-    padding-left: .5em;
+    padding-left: 0.5em;
     margin-bottom: 1rem;
   }
 
@@ -27,7 +27,7 @@
     white-space: pre;
     background: var(--c-darker);
   }
-  
+
   pre {
     padding: 0.5rem;
     display: block;
@@ -46,7 +46,11 @@
     margin: auto;
     //quotes: '„' '“';
     quotes: '»' '«';
-    background: rgba(255, 255, 255, 0.25);
+    // background: rgba(255, 255, 255, 0.25);
+
+    p {
+      margin: 0;
+    }
   }
 }
 /* purgecss end ignore */
