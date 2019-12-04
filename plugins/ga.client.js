@@ -10,7 +10,7 @@ export default ({ app }) => {
    */
   if (process.env.NODE_ENV !== 'production') return
 
-  var gaProperty = 'UA-136598647-3'
+  var gaProperty = 'UA-154003341-1'
 
   /*
    ** Let users opt-out
